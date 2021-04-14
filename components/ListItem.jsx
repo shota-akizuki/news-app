@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -27,9 +28,9 @@ const styles = StyleSheet.create({
   subText: { fontSize: 12, color: 'gray' },
 });
 
-export const ListItem = ({ imageUrl, title, author }) => {
+export const ListItem = ({ imageUrl, title, author, onPress }) => {
   return (
-    <View style={styles.itemContainer}>
+    <TouchableOpacity style={styles.itemContainer} onPress={onPress}>
       <View style={styles.leftContainer}>
         {/* imageUrlがtrueでないなら右辺を返す */}
         {/* !!…変数がstring型の場合、確実にbooleanで返す */}
@@ -48,6 +49,6 @@ export const ListItem = ({ imageUrl, title, author }) => {
         </Text>
         <Text style={styles.subText}>{author}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
