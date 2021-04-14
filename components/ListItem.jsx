@@ -31,12 +31,16 @@ export const ListItem = ({ imageUrl, title, author }) => {
   return (
     <View style={styles.itemContainer}>
       <View style={styles.leftContainer}>
-        <Image
-          style={styles.tinyLogo}
-          source={{
-            uri: imageUrl,
-          }}
-        />
+        {/* imageUrlがtrueでないなら右辺を返す */}
+        {/* !!…変数がstring型の場合、確実にbooleanで返す */}
+        {!!imageUrl && (
+          <Image
+            style={styles.tinyLogo}
+            source={{
+              uri: imageUrl,
+            }}
+          />
+        )}
       </View>
       <View style={styles.rightContainer}>
         <Text numberOfLines={3} style={styles.text}>
