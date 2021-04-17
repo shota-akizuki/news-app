@@ -2,12 +2,11 @@ import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import userReducer from './reducers/user';
 import { persistReducer, persistStore } from 'redux-persist';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 //userをstoreに定義する
 const rootReducer = combineReducers({
   user: userReducer,
 });
-
 //persistの設定
 const persistConfig = {
   key: 'root',
